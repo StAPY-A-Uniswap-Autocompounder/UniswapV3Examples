@@ -3,7 +3,7 @@
 //
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
-var addresses = require("./address")
+var addresses = require("./addresses")
 const hre = require("hardhat");
 
 async function main() {
@@ -20,8 +20,14 @@ async function main() {
 
   await singleSwap.deployed();
 
+  await hre.network.provider.request({
+    method: "hardhat_impersonateAccount",
+    params: [addresses.DAI_WHALE],
+  });
+  const impersonatedAccount = await ethers.getSigner(addresses.DAI_WHALE)
+
   console.log("SingleSwap deployed to:", singleSwap.address);
-  tx = await singleSwap.swapExactOutputSingle('5', '500000');
+  tx = await singleSwap.connect(impersonatedAccount).swapExactOutputSingle(1,10000);
   console.log(tx);
 }
 
