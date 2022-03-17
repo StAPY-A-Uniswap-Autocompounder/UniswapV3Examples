@@ -1,0 +1,23 @@
+{
+  "name": "swap-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "hardhat": "^2.9.1",
+    "solidity-coverage": "^0.7.20"
+  },
+  "dependencies": {
+    "@uniswap/v3-periphery": "^1.4.0",
+    "hardhat-etherscan": "^1.0.1",
+    "hardhat-waffle": "^0.0.1-security",
+    "waffle": "^0.0.4"
+  }
+}
